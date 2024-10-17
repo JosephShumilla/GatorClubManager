@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .models import Club
 
 def login_user(request):
     return render(request, 'authenticate/Sign_In.html', {})   
@@ -9,7 +10,8 @@ def signup_user(request):
 def createClub(request):
     return render(request, 'authenticate/createClub.html',{})
 def joinClubs(request):
-    return render(request, 'authenticate/joinClubs.html',{})
+    clubs = Club.objects.all()
+    return render(request, 'authenticate/joinClubs.html',{'clubs': clubs})
 def index(request):
     return render(request, 'authenticate/index.html',{})
 def myClubs(request):
