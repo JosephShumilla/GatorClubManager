@@ -23,4 +23,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
+    path('sign_up.html', views.signup_user, name='signup'),
+    path('createClub.html', views.createClub, name='createClub'),
+    path('joinClubs.html', views.joinClubs, name='joinClub'),
+    path('index.html', views.index, name='home'),
+    path('myClubs.html', views.myClubs, name='myClubs'),
+    path('upcomingEvents.html', views.upcomingEvents, name='upcomingEvents'),
+    path('Sign_In.html', views.Sign_In, name='Sign_In')
 ]
