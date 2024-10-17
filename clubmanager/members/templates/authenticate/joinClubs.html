@@ -15,7 +15,7 @@
             <div class="navBar_container">
                 <a href="/" id="navBar_logo">Gator Club Manager</a>
             </div>
-        
+
             <ul class="navBar_links">
                 <li class="navBar_link_container">
                     <a href="/myClubs.html" class="navBar_link">My Clubs</a>
@@ -32,7 +32,17 @@
                 <li class="navBar_link_container"></li>
                     <a href="/Sign_In.html" class="navBar_link">Sign In</a>
                 </li>
-                
             </ul>
         </nav>
+        <!---Hero Section-->
+        <div class="main_left">
+            {% for club in clubs %}
+            <div class="club_box">
+                <form>
+                    <h1 class="club_name">{{ club.club_name }}</h1>
+                    <h2 class="club_body_text">{{ club.club_desc }}</h2>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
     </body>
