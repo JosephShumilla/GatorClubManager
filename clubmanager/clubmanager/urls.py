@@ -31,3 +31,9 @@ urlpatterns = [
     path('upcomingEvents.html', views.upcomingEvents, name='upcomingEvents'),
     path('Sign_In.html', views.Sign_In, name='Sign_In')
 ]
+
+## user login/logout authentication
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]

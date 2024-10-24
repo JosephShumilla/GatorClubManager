@@ -36,17 +36,20 @@
         <!--Hero Section-->
         <div class="main">
             <div class="signIn_box">
-                <form>
-                    <h1 class="signIn_text">Sign In</h1>
-                
-                    <h2>Email: </h2>
-                    <input type="text" name="email" id="email" required>
-                    <h2>Password: </h2>
-                    <input type="text" name="password" id="password">
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                          <td>{{ form.username.label_tag }}</td>
+                          <td>{{ form.username }}</td>
+                        </tr>
+                        <tr>
+                          <td>{{ form.password.label_tag }}</td>
+                          <td>{{ form.password }}</td>
+                        </tr>
+                      </table>
                     <button type="submit" id="submit">Submit</button>
                     <a href="/sign_up.html" class="signUp_link">Sign Up</a>
-                    
-                    
                 </form>
             </div>
         </div>
