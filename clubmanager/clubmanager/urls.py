@@ -19,12 +19,12 @@ from django.urls import path, include
 from django.shortcuts import redirect
 from members import views
 
+
 urlpatterns = [
-    path('', lambda request: redirect('accounts/login/')),
+    path('', lambda request: redirect('accounts/signup/')),
     path('admin/', admin.site.urls),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
-    path('sign_up.html', views.signup_user, name='signup'),
     path('createClub.html', views.createClub, name='createClub'),
     path('joinClubs.html', views.joinClubs, name='joinClub'),
     path('index.html', views.index, name='home'),
@@ -36,5 +36,5 @@ urlpatterns = [
 ## user login/logout authentication
 
 urlpatterns += [
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('authentication.urls')),
 ]
