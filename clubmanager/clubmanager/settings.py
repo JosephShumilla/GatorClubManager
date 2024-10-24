@@ -67,7 +67,7 @@ TEMPLATES = [
             ],
         },
     },
-]
+]   
 
 WSGI_APPLICATION = 'clubmanager.wsgi.application'
 
