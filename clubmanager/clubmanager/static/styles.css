@@ -117,6 +117,34 @@
     font-size: 2rem;
     color: rgb(0,60,125);
 }
+.search_bar{
+    display:flex;
+    overflow: hidden;
+}
+.search_bar input[type=text]{
+    display:inherit;
+    float: left;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-left: 16px;
+    font-size: 17px;
+}
+.search_bar input[type=submit]{
+    float: left;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-left: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+.search_bar input[type=submit]:hover {
+ display:inherit;
+
+    background: #ccc;
+}
 .club_box{
     height: 200px;
     width: 700px;

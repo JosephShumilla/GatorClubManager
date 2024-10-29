@@ -20,20 +20,28 @@
                 <li class="navBar_link_container">
                     <a href="/myClubs.html" class="navBar_link">My Clubs</a>
                 </li>
-                <li class="navBar_link_container"></li>
+                <li class="navBar_link_container">
                     <a href="/joinClubs.html" class="navBar_link">Join Clubs</a>
                 </li>
-                <li class="navBar_link_container"></li>
+                <li class="navBar_link_container">
                     <a href="/createClub.html" class="navBar_link">Create Club</a>
                 </li>
-                <li class="navBar_link_container"></li>
+                <li class="navBar_link_container">
                     <a href="/upcomingEvents.html" class="navBar_link">Upcoming Events</a>
                 </li>
-                <li class="navBar_link_container"></li>
+                <li class="navBar_link_container">
                     <a href="/Sign_In.html" class="navBar_link">Sign In</a>
                 </li>
             </ul>
         </nav>
+        <div>
+            <div class="search_bar">
+                <form action="#">
+                    <input type="text" placeholder="Search..">
+                    <input type="submit" value="Go">
+                </form>
+            </div>
+        </div>
         <!---Hero Section-->
         <div class="main_left">
             {% for club in clubs %}
