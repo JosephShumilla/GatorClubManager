@@ -12,6 +12,13 @@ def createClub(request):
 def joinClubs(request):
     clubs = Club.objects.all()
     return render(request, 'authenticate/joinClubs.html',{'clubs': clubs})
+def searchClubs(request):
+    query = request.GET.get('query', '')
+    if query:
+        clubs = Club.objects.filter(club_name__icontains=query)
+    else:
+        clubs = Club.objects.all()
+    return render(request, 'authenticate/joinClubs.html', {'clubs': clubs})
 def index(request):
     return render(request, 'authenticate/index.html',{})
 def myClubs(request):

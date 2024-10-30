@@ -118,27 +118,19 @@
     color: rgb(0,60,125);
 }
 .search_bar{
-    display:flex;
+    display: flex;
+    align-items: left;
     overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: fit-content;
 }
 .search_bar input[type=text]{
-    display:inherit;
-    float: left;
+    flex-grow: 1;
     padding: 6px;
     border: none;
-    margin-top: 8px;
-    margin-left: 16px;
     font-size: 17px;
-}
-.search_bar input[type=submit]{
-    float: left;
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-left: 16px;
-    background: #ddd;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
+    margin: 0;
 }
 .search_bar input[type=submit]:hover {
  display:inherit;

@@ -36,9 +36,8 @@
         </nav>
         <div>
             <div class="search_bar">
-                <form action="#">
-                    <input type="text" placeholder="Search..">
-                    <input type="submit" value="Go">
+                <form method="GET" action="{% url 'search_clubs' %}">
+                    <input type="text" name="query" placeholder="Search..">
                 </form>
             </div>
         </div>
