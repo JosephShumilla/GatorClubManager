@@ -41,6 +41,14 @@ def joinClubs(request):
         'club_data': club_data
     }
     return render(request, 'authenticate/joinClubs.html', context=context)
+
+def searchClubs(request):
+    query = request.GET.get('query', '')
+    clubs = Club.objects.filter(club_name__icontains=query)
+    paginator = Paginator(clubs, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'authenticate/joinClubs.html', {'page_obj': page_obj, 'query': query})
 def index(request):
     return render(request, 'authenticate/index.html',{})
 def myClubs(request):

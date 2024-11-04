@@ -120,8 +120,26 @@
     background-color: white;
   
     justify-content: left;
-    
-    
+}
+.search_bar{
+    display: flex;
+    align-items: left;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: fit-content;
+}
+.search_bar input[type=text]{
+    flex-grow: 1;
+    padding: 6px;
+    border: none;
+    font-size: 17px;
+    margin: 0;
+}
+.search_bar input[type=submit]:hover {
+ display:inherit;
+
+    background: #ccc;
 }
 .club_box{
     
