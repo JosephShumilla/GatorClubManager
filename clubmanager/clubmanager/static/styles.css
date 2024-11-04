@@ -73,15 +73,7 @@
     justify-content: center;
     
 }
-.main_left{
-    display: flex;
-    height: 700px;
-    width: 100%;
-    flex-direction: column;
-    background-color: white;
-    align-content: center;
-    justify-content: left;
-}
+
 .signIn_box{
 
     height: 400px;
@@ -102,6 +94,8 @@
     background-color: aqua;
 
 }
+
+
 .signIn_box h1{
 
     display: inherit;
@@ -117,16 +111,27 @@
     font-size: 2rem;
     color: rgb(0,60,125);
 }
+.main_left{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    height: 1700px;
+    width: 100%;
+    background-color: white;
+  
+    justify-content: left;
+    
+    
+}
 .club_box{
-    height: 200px;
-    width: 700px;
+    
+    height: 300px;
+    width: 600px;
     background-color: rgba(235, 235, 235, 0.87);
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-bottom: 10px
-    justify-content: center;
+    margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 5px 5px black;
+    
 }
 .club_box label{
     margin-top: 50px;
@@ -146,6 +151,15 @@
 .club_box h2{
     margin-left: 10px;
     font-size:  1rem;
+}
+
+#TitleJoinClub{
+    display: flex;
+    color: rgb(0,60,125);
+    font-size: 3rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
 }
 input{
     position: relative;
@@ -197,16 +211,16 @@ button{
     height: 100%;
     width: 100%;
     background-color: white;
-    color: white;
+    color: black;
 
 }
 .formBox{
+    display: inline-block;
     height: 600px;
     width: 70%;
     margin-left: 15%;
     background-color: rgba(235, 235, 235, 0.87);
     margin-top: 40px;
-    justify-content: center;
     border-radius: 10px;
     box-shadow: 0 5px 5px black;
 }
@@ -216,20 +230,144 @@ button{
     margin-left: 32%;
 
 }
-.outerBox h2{
+
+.part1{
+    margin-top: 20px;
+    margin-bottom: 20px;
     color: black;
-    margin-left: 20px;
-    margin-top: 5px;
-    padding: 2%;
+    display: flex;
+    justify-content: left;
+
 }
-.outerBox input{
-    width: 30%;
-    margin-left: 20px;
-    margin-top: 10px;
+.ClName, .ClubLeader{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    font-size: 1rem;    
+    width: 35%;
+    min-width: 100px;
+    height:150px;
+    margin-left: 75px;
 }
+
+.ClName h2, .ClubLeader h2{
+
+    display: flex;
+    color: black;
+    white-space: nowrap;
+    margin:  0;
+    width: 100%;
+    
+}
+.ClName input, .ClubLeader input{
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    width: 100%;
+}
+
+.part2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: black;
+    display: flex;
+    justify-content: left;
+    margin-left: 75px;
+    
+}
+.part2 h2{
+    display: flex;
+    color: black;
+    white-space: nowrap;
+    margin:  0;
+    width: 100%;
+}
+.part2 textarea{
+    width: 745px;              
+    height: 100px;            
+    padding: 10px;            
+    font-size: 1rem;         
+    color: black;             
+    resize: vertical;         
+    margin-left: 0px;    
+    position: relative;       
+    z-index: auto;            
+    background-color: white;  
+    overflow-wrap: normal;   
+    word-wrap: normal;
+    pointer-events: auto;  
+}
+
+.part3{
+    justify-content: left;
+    display: flex;
+    color: black;
+    margin-top: 30px;
+    width: 100%;
+    height: 60px;
+}
+.insta, .Discord, .Twitter{
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    font-size: 1rem;    
+    width: 250px;
+    height: 60px;
+    margin-left: 50px;
+}
+.insta h2, .Discord h2, .Twitter h2{
+    
+    color: black;
+    white-space: nowrap;
+    margin:  0;
+    width: 300px;
+}
+.insta input, .Discord input, .Twitter input{
+    display: flex;
+    margin-left: 0;
+    height: 150px;
+    width: 240px;
+    color: black;
+   
+}
+
 .testbutton{
     width: 100px;
     height: 100px;
     color: brown;
     background-color: brown;
+}
+#createClub_Submit{
+    margin-top: 75px;
+    margin-left: 425px;
+    justify-content: center;
+    width: 100px;
+    height: 25px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 5px 10px;
+    background-color: rgb(0,60,125);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination span {
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: rgb(250,70,22);
 }
