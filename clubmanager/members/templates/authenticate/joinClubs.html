@@ -36,11 +36,19 @@
         </nav>
         <!---Hero Section-->
         <div class="main_left">
-            {% for club in clubs %}
+            {% for club_datum in club_data %}
             <div class="club_box">
                 <form>
-                    <h1 class="club_name">{{ club.club_name }}</h1>
-                    <h2 class="club_body_text">{{ club.club_desc }}</h2>
+                    <h1 class="club_name">{{ club_datum.club.club_name }}</h1>
+                    <h2 class="club_body_text">{{ club_datum.club.club_desc }}</h2>
+                    {% if not club_datum.is_member %}
+                    <form action="{% url 'join_club' club.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="join-button">Join</button>
+                    </form>
+                    {% else %}
+                        <button class="joined-button" disabled>Joined</button>
+                    {% endif %}
                 </form>
             </div>
             {% endfor %}
