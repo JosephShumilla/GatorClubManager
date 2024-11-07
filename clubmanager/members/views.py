@@ -56,4 +56,4 @@ def myClubs(request):
 def upcomingEvents(request):
     return render(request, 'authenticate/upcomingEvents.html',{})
 def Sign_In(request):
-    return render(request, 'authenticate/Sign_In.html',{})
+    return render(request, 'authenticate/login.html',{})
