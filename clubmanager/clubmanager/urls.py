@@ -30,8 +30,6 @@ urlpatterns = [
     path('index.html', views.index, name='home'),
     path('myClubs.html', views.myClubs, name='myClubs'),
     path('upcomingEvents.html', views.upcomingEvents, name='upcomingEvents'),
-    path("login.html", views.Sign_In, name='login'),
-    path("sign_up.html", views.signup_user, name='signup'),
 ]
 ## user login/logout authentication
 

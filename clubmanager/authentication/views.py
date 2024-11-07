@@ -5,7 +5,6 @@ from django.contrib.auth import login
 from django.urls import reverse_lazy
 
 def signup_view(request):
-    request.session['logged_in']
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
