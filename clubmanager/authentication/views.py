@@ -11,7 +11,7 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()  # Save the new user to the database
             login(request, user)  # Log the user in after sign-up
-            return redirect('')  # Redirect to home page or any other page
+            return redirect('/myClubs.html')  # Redirect to home page or any other page
     else:
         form = UserCreationForm()
 
