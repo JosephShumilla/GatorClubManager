@@ -1,7 +1,7 @@
 # views.py
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.urls import reverse_lazy
 
 def signup_view(request):
@@ -15,3 +15,7 @@ def signup_view(request):
         form = UserCreationForm()
 
     return render(request, 'signup.html', {'form': form})
+
+def signout_view(request):
+    logout(request)
+    return redirect(reverse_lazy('login'))
