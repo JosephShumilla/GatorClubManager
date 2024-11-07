@@ -21,7 +21,7 @@ from members import views
 
 
 urlpatterns = [
-    path('', lambda request: redirect('login')),
+    path('', views.first_view, name='first_view'),
     path('admin/', admin.site.urls),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
