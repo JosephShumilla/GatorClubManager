@@ -25,6 +25,22 @@ def item_list(request):
     return render(request, 'main_sites/joinClubs.html', {'page_obj': page_obj})
 
 def createClub(request):
+    print("ran")
+    if request.method == 'POST':
+        club_name = request.POST.get('ClubName')
+        club_leader = request.POST.get('ClubLeader')
+        club_description = request.POST.get('ClubDescription')
+        instagram = request.POST.get('Socials')
+        discord = request.POST.get('Socials')
+        twitter = request.POST.get('Socials')
+
+        # Create and save a new club instance
+        new_club = Club(
+            club_name=club_name,
+            club_desc=club_description,
+        )
+        new_club.save()
+
     return render(request, 'main_sites/createClub.html',{})
 def joinClubs(request):
     clubs = Club.objects.all()

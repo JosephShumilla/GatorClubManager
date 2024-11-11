@@ -5,5 +5,6 @@ from .views import joinClubs
 
 urlpatterns = [
     path('', views.first_view, name='first_view'),
-    path('search/', views.searchClubs, name='search_clubs')
+    path('search/', views.searchClubs, name='search_clubs'),
+    path('create-club/', views.createClub, name='create_club'),
 ]

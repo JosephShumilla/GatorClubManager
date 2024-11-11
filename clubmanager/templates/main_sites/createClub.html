@@ -4,8 +4,9 @@
         <div class="main">
             <div class="outerBox">
                 
-                <form>
-                    <div class="formBox" method="POST" id="formBox">
+                <form method="POST" action="{% url 'create_club' %}" id="formBox">
+                    {% csrf_token %}
+                    <div class="formBox">
                         <H1 id="CCTitle">Create A Club</H1>
                         <div class="part1">
                             <div class="ClName">
@@ -19,29 +20,25 @@
                         </div>
                         <div class="part2">
                             <div class="purpose">
-                            <h2>Purpose</h2>
-                            <textarea  placeholder="Write Short Description of Your Club..." name="ClubDescription" id="CCDes" required></textarea>
+                                <h2>Purpose</h2>
+                                <textarea placeholder="Write Short Description of Your Club..." name="ClubDescription" id="CCDes" required></textarea>
                             </div>
                         </div>
-
                         <div class="part3">
-                
                             <div class="insta">
                                 <h2>Instagram</h2>
-                                <input type="url" name="Socials" id="Socials">
+                                <input type="url" name="Instagram" id="Instagram">
                             </div>
                             <div class="Discord">
                                 <h2>Discord</h2>
-                                <input type="url" name="Socials" id="Socials">
+                                <input type="url" name="Discord" id="Discord">
                             </div>
                             <div class="Twitter">
                                 <h2>Twitter</h2>
-                                <input type="url" name="Socials" id="Socials">
+                                <input type="url" name="Twitter" id="Twitter">
                             </div>
-                        
                         </div>
-                        <button class ="submit" type="button" id="createClub_Submit">Create Club</button>
-
+                        <button class="submit" type="submit" id="createClub_Submit">Create Club</button>
                     </div>
                 </form>
             </div>
