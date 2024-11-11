@@ -83,7 +83,9 @@
     justify-content: center;
     border-radius: 10px;
     box-shadow: 0 5px 5px black;
-
+}
+.signIn_box p{
+    background-color: none;
 }
 .signIn_box label{
     margin-top: 50px;
@@ -91,10 +93,9 @@
     font-size: 2rem;
     margin-left: 75px;
     color: rgb(0,60,125);
-    background-color: aqua;
+    background-color: none;
 
 }
-
 
 .signIn_box h1{
 
@@ -132,6 +133,50 @@
 
     background: #ccc;
 =======
+.signUp_box{
+    height: 600px;
+    width: 550px;
+    background-color: rgba(235, 235, 235, 0.87);
+    margin-top: 80px;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px black;
+}
+.signUp_box li{
+    list-style: none;
+    justify-: center;
+    margin-left: 25px;
+}
+.signUp_box p{
+    background-color: none;
+}
+.signUp_box label{
+    margin-top: 50px;
+    display: inherit;
+    font-size: 2rem;
+    margin-left: 75px;
+    color: rgb(0,60,125);
+    background-color: none;
+
+}
+.signUp_box h1{
+
+    display: inherit;
+    font-size: 3rem;
+    color:  rgb(0,60,125);
+    margin-left: 160px;
+}
+.signUp_box h2{
+    margin-left: 80px;
+    margin-top: 25px;
+    padding: 0 0px;
+    display: inherit;
+    font-size: 2rem;
+    color: rgb(0,60,125);
+}
+.signUp_box span{
+    margin-left: 25px;
+}
 .main_left{
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -141,9 +186,33 @@
     background-color: white;
   
     justify-content: left;
-    
-    
->>>>>>> turillo-authentication
+}
+.search_bar_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 600px ;
+    overflow: hidden;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 500px;
+    margin-bottom: 20px;
+}
+.search_bar{
+    width: 100%;
+}
+.search_bar input[type=text]{
+    flex-grow: 1;
+    padding: 6px;
+    border: none;
+    font-size: 17px;
+    margin: 0;
+    width: 100%;
+}
+.search_bar input[type=submit]:hover {
+ display:inherit;
+
+    background: #ccc;
 }
 .club_box{
     
@@ -161,7 +230,6 @@
     font-size: 2rem;
     margin-left: 75px;
     color: rgb(0,60,125);
-    background-color: aqua;
 
 }
 .club_box h1{

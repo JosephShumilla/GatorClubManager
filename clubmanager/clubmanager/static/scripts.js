@@ -16,3 +16,7 @@ function addSocialMedia(){
     container.appendChild(input);  // Add the new input
     
 }
+
+function joinClub(){
+    print()
+}

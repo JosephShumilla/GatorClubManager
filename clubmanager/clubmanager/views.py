@@ -7,13 +7,6 @@ from .models import Club, Membership
 from django.core.paginator import Paginator
 
 
-def first_view(request):
-    if request.user.is_authenticated:
-        print('User is authenticated')
-        return redirect('home')
-    else:
-        print('User is not authenticated')
-        return redirect('login')
 
 def item_list(request):
     items = Club.objects.all()  # Fetch all items from the database
@@ -22,22 +15,12 @@ def item_list(request):
     page_number = request.GET.get('page')  # Get the page number from the request
     page_obj = paginator.get_page(page_number)  # Get the page of items
 
-    return render(request, 'main_sites/joinClubs.html', {'page_obj': page_obj})
+    return render(request, 'authenticate/joinClubs.html', {'page_obj': page_obj})
 
 def createClub(request):
-    return render(request, 'main_sites/createClub.html',{})
+    return render(request, 'authenticate/createClub.html',{})
 def joinClubs(request):
     clubs = Club.objects.all()
-<<<<<<< HEAD
-    return render(request, 'authenticate/joinClubs.html',{'clubs': clubs})
-def searchClubs(request):
-    query = request.GET.get('query', '')
-    if query:
-        clubs = Club.objects.filter(club_name__icontains=query)
-    else:
-        clubs = Club.objects.all()
-    return render(request, 'authenticate/joinClubs.html', {'clubs': clubs})
-=======
     user = request.user
 
     ## add membership status to each club
@@ -53,7 +36,7 @@ def searchClubs(request):
         'clubs': clubs,
         'club_data': club_data
     }
-    return render(request, 'main_sites/joinClubs.html', context=context)
+    return render(request, 'authenticate/joinClubs.html', context=context)
 
 def searchClubs(request):
     query = request.GET.get('query', '')
@@ -61,10 +44,12 @@ def searchClubs(request):
     paginator = Paginator(clubs, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'main_sites/joinClubs.html', {'page_obj': page_obj, 'query': query})
+    return render(request, 'authenticate/joinClubs.html', {'page_obj': page_obj, 'query': query})
 def index(request):
-    return render(request, 'main_sites/index.html',{})
+    return render(request, 'authenticate/index.html',{})
 def myClubs(request):
-    return render(request, 'main_sites/myClubs.html',{})
+    return render(request, 'authenticate/myClubs.html',{})
 def upcomingEvents(request):
-    return render(request, 'main_sites/upcomingEvents.html',{})
+    return render(request, 'authenticate/upcomingEvents.html',{})
+def Sign_In(request):
+    return render(request, 'authenticate/login.html',{})

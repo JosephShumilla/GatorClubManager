@@ -21,7 +21,7 @@ from members import views
 
 
 urlpatterns = [
-    path('', lambda request: redirect('myClubs.html')),
+    path('', views.first_view, name='first_view'),
     path('admin/', admin.site.urls),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
@@ -30,9 +30,7 @@ urlpatterns = [
     path('index.html', views.index, name='home'),
     path('myClubs.html', views.myClubs, name='myClubs'),
     path('upcomingEvents.html', views.upcomingEvents, name='upcomingEvents'),
-    path('Sign_In.html', views.Sign_In, name='Sign_In')
 ]
-
 ## user login/logout authentication
 
 urlpatterns += [

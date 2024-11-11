@@ -4,7 +4,6 @@ from . import views
 from .views import joinClubs
 
 urlpatterns = [
-    path('', views.login_user, name="login"),
-    path('signUp', views.signup_user, name='signup'),
+    path('', views.first_view, name='first_view'),
     path('search/', views.searchClubs, name='search_clubs')
 ]
