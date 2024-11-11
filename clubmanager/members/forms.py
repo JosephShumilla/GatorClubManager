@@ -1,5 +1,5 @@
 from django import forms
-from .models import User
+from .models import User, Membership
 
 class SignUpForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
@@ -14,3 +14,8 @@ class SignUpForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+class MembershipForm(forms.ModelForm):
+    class Meta:
+        model = Membership
+        fields = ['club', 'user', 'role']

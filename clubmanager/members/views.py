@@ -26,6 +26,24 @@ def item_list(request):
 
 def createClub(request):
     return render(request, 'main_sites/createClub.html',{})
+
+def joinSpecificClub(request):
+    club_id = request.POST.get('club_id')
+    club = Club.objects.get(id=club_id)
+    user = request.user
+    print(user, club)
+    if user.is_authenticated:
+        is_member = Membership.objects.filter(user=user, club=club).exists()
+        if not is_member:
+            membership = Membership(user=user, club=club, role='Member')
+            membership.save()
+            messages.success(request, f'You have joined {club.club_name}')
+        else:
+            messages.error(request, f'You are already a member of {club.club_name}')
+    else:
+        messages.error(request, 'You must be logged in to join a club')
+    return redirect('home')
+
 def joinClubs(request):
     clubs = Club.objects.all()
     user = request.user

@@ -17,7 +17,12 @@
         <div class="club_box">
             <h1 class="club_name">{{ item.club_name }}</h1>
             <h2 class="club_body_text">{{ item.club_desc }}</h2>
-            <button type="button">Join Club</button>
+
+            <form method="POST", action="{% url 'join_specific_club' %}">
+                {% csrf_token %}
+                <input type="hidden" name="club_id" value="{{ item.id }}">
+                <button type="submit">Join Club ksjdfkj</button>
+            </form>
         </div>
         {% empty %}
         <p>No clubs found.</p>
