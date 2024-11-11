@@ -14,3 +14,10 @@ class SignUpForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+class ClubForm(forms.Form):
+    club_name = forms.CharField(max_length=255, label="Club Name")
+    club_description = forms.CharField(widget=forms.Textarea, label="Club Description")
+    instagram = forms.URLField(required=False, label="Instagram")
+    discord = forms.URLField(required=False, label="Discord")
+    twitter = forms.URLField(required=False, label="Twitter")

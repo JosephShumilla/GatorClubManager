@@ -20,3 +20,21 @@ function addSocialMedia(){
 function joinClub(){
     print()
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('formBox');  // The form in createClub.html
+    const submitButton = document.getElementById('createClub_Submit');
+
+    // Listen for form submission
+    form.addEventListener('submit', function(event) {
+        const clubName = document.getElementById('ClubName').value;
+        const clubLeader = document.getElementById('ClubLeader').value;
+        const clubDesc = document.getElementById('CCDes').value;
+
+        // Simple validation: Ensure the required fields are filled
+        if (!clubName || !clubLeader || !clubDesc) {
+            event.preventDefault();  // Prevent form submission
+            alert("Please fill out all required fields!");
+        }
+    });
+});

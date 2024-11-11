@@ -1,12 +1,23 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+import sqlite3
+from django.http import JsonResponse
 
 from .models import Club, Membership
 
 from django.core.paginator import Paginator
 
 
+def connnect_database():
+    database = sqlite3.connect('db.sqlite3')
+    return database
+
+# Function that inserts clubs into the database
+def insert_club(database, club_name, club_desc):
+    cursor = database.cursor()
+    cursor.execute('INSERT INTO Club_Database (club_name, club_desc) VALUES (?, ?)', (club_name, club_desc))
+    database.commit()
 
 def item_list(request):
     items = Club.objects.all()  # Fetch all items from the database
@@ -18,6 +29,15 @@ def item_list(request):
     return render(request, 'authenticate/joinClubs.html', {'page_obj': page_obj})
 
 def createClub(request):
+    print("create club ran!")
+    if request.method == 'POST':
+        club_name = request.POST.get('ClubName')
+        club_description = request.POST.get('ClubDescription')
+
+        club = Club(club_name=club_name, club_desc=club_description)
+        club.save()  # Save the club to the database
+
+        return JsonResponse({'success': True, 'message': 'Club created successfully!'})
     return render(request, 'authenticate/createClub.html',{})
 def joinClubs(request):
     clubs = Club.objects.all()
