@@ -1,0 +1,54 @@
+{% load static %}
+<script src="{% static 'clubmanager/scripts.js' %}"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gator Club Manager</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+    <body>
+        <!--Header-->
+        <nav class="navBar">
+            <div class="navBar_container">
+                <a href="/" id="navBar_logo">Gator Club Manager</a>
+            </div>
+        
+            <ul class="navBar_links">
+                <li class="navBar_link_container">
+                    <a href="/myClubs.html" class="navBar_link">My Clubs</a>
+                </li>
+                <li class="navBar_link_container"></li>
+                    <a href="/joinClubs.html" class="navBar_link">Join Clubs</a>
+                </li>
+                <li class="navBar_link_container"></li>
+                    <a href="/createClub.html" class="navBar_link">Create Club</a>
+                </li>
+                <li class="navBar_link_container"></li>
+                    <a href="/upcomingEvents.html" class="navBar_link">Upcoming Events</a>
+                </li>
+                <li class="navBar_link_container"></li>
+                    <a href="/" class="navBar_link">Sign In</a>
+                </li>
+            </ul>
+        </nav>
+        <!--Hero Section-->
+        <div class="main">
+            <div class="signIn_box">
+                <form>
+                    <h1 class="signIn_text">Sign Up</h1>
+                
+                    <h2>Email: </h2>
+                    <input type="text" name="email" id="email" required>
+                    <h2>Password: </h2>
+                    <input type="text" name="password" id="password">
+                    <button type="submit" id="submit">Submit</button>
+                    
+                    
+                    
+                </form>
+            </div>
+        </div>
+    </body>
