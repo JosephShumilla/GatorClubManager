@@ -28,16 +28,6 @@ def createClub(request):
     return render(request, 'main_sites/createClub.html',{})
 def joinClubs(request):
     clubs = Club.objects.all()
-<<<<<<< HEAD
-    return render(request, 'authenticate/joinClubs.html',{'clubs': clubs})
-def searchClubs(request):
-    query = request.GET.get('query', '')
-    if query:
-        clubs = Club.objects.filter(club_name__icontains=query)
-    else:
-        clubs = Club.objects.all()
-    return render(request, 'authenticate/joinClubs.html', {'clubs': clubs})
-=======
     user = request.user
 
     ## add membership status to each club
