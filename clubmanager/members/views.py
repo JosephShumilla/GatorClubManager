@@ -85,9 +85,23 @@ def searchClubs(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'main_sites/joinClubs.html', {'page_obj': page_obj, 'query': query})
+
+def myClubs(request):
+    print("ran")
+    user = request.user
+    if user.is_authenticated:
+        memberships = Membership.objects.filter(user=user)
+        clubs = [membership.club for membership in memberships]
+    else:
+        clubs = []
+
+    paginator = Paginator(clubs, 10)  # Show 10 clubs per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'main_sites/myClubs.html', {'page_obj': page_obj})
+
 def index(request):
     return render(request, 'main_sites/index.html',{})
-def myClubs(request):
-    return render(request, 'main_sites/myClubs.html',{})
 def upcomingEvents(request):
     return render(request, 'main_sites/upcomingEvents.html',{})

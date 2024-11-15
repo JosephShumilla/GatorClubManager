@@ -45,6 +45,7 @@ def searchClubs(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'authenticate/joinClubs.html', {'page_obj': page_obj, 'query': query})
+
 def index(request):
     return render(request, 'authenticate/index.html',{})
 def myClubs(request):

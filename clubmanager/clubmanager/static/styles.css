@@ -222,7 +222,20 @@
     font-size:  1rem;
 }
 
+.club_box button:hover {
+    background-color: #da690b;
+}
+
 #TitleJoinClub{
+    display: flex;
+    color: rgb(0,60,125);
+    font-size: 3rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+#TitleMyClubs{
     display: flex;
     color: rgb(0,60,125);
     font-size: 3rem;
@@ -685,6 +698,7 @@ button{
     margin-left: 10px;
     font-size:  1rem;
 }
+
 
 #TitleJoinClub{
     display: flex;
