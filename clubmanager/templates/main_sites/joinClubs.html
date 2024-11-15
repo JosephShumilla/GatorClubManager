@@ -21,7 +21,7 @@
             <form method="POST", action="{% url 'join_specific_club' %}">
                 {% csrf_token %}
                 <input type="hidden" name="club_id" value="{{ item.id }}">
-                <button type="submit">Join Club ksjdfkj</button>
+                <button type="submit">Join Club</button>
             </form>
         </div>
         {% empty %}
