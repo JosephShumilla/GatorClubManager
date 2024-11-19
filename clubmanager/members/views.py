@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-from .models import Club, Membership
+from .models import Club, Membership, Event
 
 from django.core.paginator import Paginator
 
@@ -160,5 +160,20 @@ def upcomingEvents(request):
         clubs = []
     events = []
     for club in clubs:
-        events += Club.objects.filter(club=club)
-    return render(request, 'main_sites/upcomingEvents.html',{})
+        events += Event.objects.filter(club=club)
+    
+    paginator = Paginator(events, 10)  # Show 10 clubs per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'page_obj': page_obj,
+        'event_data': page_obj.object_list
+    }
+    print(context['event_data'])
+    return render(request, 'main_sites/upcomingEvents.html', context=context)
+
+def searchEvents(request):
+    user = request.user
+    return render(request, 'main_sites/joinClubs.html',{})
+
