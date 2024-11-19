@@ -22,7 +22,21 @@ def item_list(request):
     page_number = request.GET.get('page')  # Get the page number from the request
     page_obj = paginator.get_page(page_number)  # Get the page of items
 
-    return render(request, 'main_sites/joinClubs.html', {'page_obj': page_obj})
+    user = request.user
+    club_data = []
+    for item in page_obj.object_list:
+        if user.is_authenticated:
+            is_member = Membership.objects.filter(user=user, club=item).exists()
+        else:
+            is_member = False
+        club_data.append({'club': item, 'is_member': is_member})
+    
+    context = {
+        'page_obj': page_obj,
+        'club_data': club_data
+    }
+
+    return render(request, 'main_sites/joinClubs.html', context=context)
 
 def createClub(request):
     print("ran")
