@@ -73,6 +73,24 @@ def joinSpecificClub(request):
         messages.error(request, 'You must be logged in to join a club')
     return redirect('myClubs')
 
+def leaveSpecificClub(request):
+    club_id = request.POST.get('club_id')
+    club = Club.objects.get(id=club_id)
+    user = request.user
+    print(user, club)
+    
+    if user.is_authenticated:
+        try:
+            membership = Membership.objects.get(user=user, club=club)
+            membership.delete()
+            messages.success(request, f'You have left {club.club_name}')
+        except Membership.DoesNotExist:
+            messages.error(request, f'You are not a member of {club.club_name}')
+    else:
+        messages.error(request, 'You must be logged in to leave a club')
+    
+    return redirect('myClubs')
+
 def joinClubs(request):
     clubs = Club.objects.all()
     user = request.user
@@ -98,7 +116,22 @@ def searchClubs(request):
     paginator = Paginator(clubs, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'main_sites/joinClubs.html', {'page_obj': page_obj, 'query': query})
+
+    user = request.user
+    club_data = []
+    for item in page_obj.object_list:
+        if user.is_authenticated:
+            is_member = Membership.objects.filter(user=user, club=item).exists()
+        else:
+            is_member = False
+        club_data.append({'club': item, 'is_member': is_member})
+    
+    context = {
+        'page_obj': page_obj,
+        'club_data': club_data
+    }
+
+    return render(request, 'main_sites/joinClubs.html', context=context)
 
 def myClubs(request):
     print("ran")

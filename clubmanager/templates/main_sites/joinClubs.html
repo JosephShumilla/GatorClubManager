@@ -19,6 +19,11 @@
             <h2 class="club_body_text">{{ item.club.club_desc }}</h2>
 
             {% if user.is_authenticated and item.is_member %}
+            <form method="POST", action="{% url 'leave_specific_club' %}">
+                {% csrf_token %}
+                <input type="hidden" name="club_id" value="{{ item.club.id }}">
+                <button type="submit">Leave Club</button>
+            </form>
             {% else %}
             <form method="POST", action="{% url 'join_specific_club' %}">
                 {% csrf_token %}
