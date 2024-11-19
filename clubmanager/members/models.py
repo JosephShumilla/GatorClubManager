@@ -19,3 +19,12 @@ class Membership(models.Model):
 
     def __str__(self):
         return f'{self.user.username} is a {self.role} of {self.club.club_name}'
+
+class Event(models.Model):
+    event_name = models.CharField(max_length=100)
+    event_desc = models.TextField()
+    event_date = models.DateTimeField()
+    club = models.ForeignKey(Club, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.event_name

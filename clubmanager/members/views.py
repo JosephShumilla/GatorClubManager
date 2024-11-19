@@ -117,5 +117,15 @@ def myClubs(request):
 
 def index(request):
     return render(request, 'main_sites/index.html',{})
+
 def upcomingEvents(request):
+    user = request.user
+    if user.is_authenticated:
+        memberships = Membership.objects.filter(user=user)
+        clubs = [membership.club for membership in memberships]
+    else:
+        clubs = []
+    events = []
+    for club in clubs:
+        events += Club.objects.filter(club=club)
     return render(request, 'main_sites/upcomingEvents.html',{})
