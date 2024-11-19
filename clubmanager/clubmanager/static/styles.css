@@ -11,7 +11,7 @@
     display: flex;
     font-size: 1.4rem;
     z-index: 999;
-    
+
 }
 .navBar_container{
     display: inherit;
@@ -25,7 +25,7 @@
     text-decoration: none;
     display: inherit;
     z-index: 999;
-    
+
 
 }
 #navBar_logo:hover{
@@ -71,7 +71,7 @@
     background-color: white;
     align-content: center;
     justify-content: center;
-    
+
 }
 
 .signIn_box{
@@ -160,10 +160,10 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 20px;
-    height: 1700px;
+    height: auto;
     width: 100%;
     background-color: white;
-  
+
     justify-content: left;
 }
 .search_bar_container{
@@ -194,14 +194,14 @@
     background: #ccc;
 }
 .club_box{
-    
+
     height: 300px;
     width: 600px;
     background-color: rgba(235, 235, 235, 0.87);
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 5px 5px black;
-    
+
 }
 .club_box label{
     margin-top: 50px;
@@ -326,7 +326,7 @@ button{
     display: flex;
     flex-direction: column;
     color: black;
-    font-size: 1rem;    
+    font-size: 1rem;
     width: 35%;
     min-width: 100px;
     height:150px;
@@ -340,7 +340,7 @@ button{
     white-space: nowrap;
     margin:  0;
     width: 100%;
-    
+
 }
 .ClName input, .ClubLeader input{
     display: flex;
@@ -356,7 +356,7 @@ button{
     display: flex;
     justify-content: left;
     margin-left: 75px;
-    
+
 }
 .part2 h2{
     display: flex;
@@ -366,19 +366,19 @@ button{
     width: 100%;
 }
 .part2 textarea{
-    width: 745px;              
-    height: 100px;            
-    padding: 10px;            
-    font-size: 1rem;         
-    color: black;             
-    resize: vertical;         
-    margin-left: 0px;    
-    position: relative;       
-    z-index: auto;            
-    background-color: white;  
-    overflow-wrap: normal;   
+    width: 745px;
+    height: 100px;
+    padding: 10px;
+    font-size: 1rem;
+    color: black;
+    resize: vertical;
+    margin-left: 0px;
+    position: relative;
+    z-index: auto;
+    background-color: white;
+    overflow-wrap: normal;
     word-wrap: normal;
-    pointer-events: auto;  
+    pointer-events: auto;
 }
 
 .part3{
@@ -394,13 +394,13 @@ button{
     display: flex;
     flex-direction: column;
     color: black;
-    font-size: 1rem;    
+    font-size: 1rem;
     width: 250px;
     height: 60px;
     margin-left: 50px;
 }
 .insta h2, .Discord h2, .Twitter h2{
-    
+
     color: black;
     white-space: nowrap;
     margin:  0;
@@ -412,7 +412,7 @@ button{
     height: 150px;
     width: 240px;
     color: black;
-   
+
 }
 
 .testbutton{
@@ -432,6 +432,7 @@ button{
 .pagination {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     gap: 10px;
     margin-top: 20px;
 }
@@ -467,7 +468,7 @@ button{
     display: flex;
     font-size: 1.4rem;
     z-index: 999;
-    
+
 }
 .navBar_container{
     display: inherit;
@@ -481,7 +482,7 @@ button{
     text-decoration: none;
     display: inherit;
     z-index: 999;
-    
+
 
 }
 #navBar_logo:hover{
@@ -527,7 +528,7 @@ button{
     background-color: white;
     align-content: center;
     justify-content: center;
-    
+
 }
 
 .signIn_box{
@@ -637,10 +638,10 @@ button{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 20px;
-    height: 1700px;
+    height: auto;
     width: 100%;
     background-color: white;
-  
+
     justify-content: left;
 }
 .search_bar_container{
@@ -671,14 +672,14 @@ button{
     background: #ccc;
 }
 .club_box{
-    
+
     height: 300px;
     width: 600px;
     background-color: rgba(235, 235, 235, 0.87);
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 5px 5px black;
-    
+
 }
 .club_box label{
     margin-top: 50px;
@@ -791,7 +792,7 @@ button{
     display: flex;
     flex-direction: column;
     color: black;
-    font-size: 1rem;    
+    font-size: 1rem;
     width: 35%;
     min-width: 100px;
     height:150px;
@@ -805,7 +806,7 @@ button{
     white-space: nowrap;
     margin:  0;
     width: 100%;
-    
+
 }
 .ClName input, .ClubLeader input{
     display: flex;
@@ -821,7 +822,7 @@ button{
     display: flex;
     justify-content: left;
     margin-left: 75px;
-    
+
 }
 .part2 h2{
     display: flex;
@@ -831,19 +832,19 @@ button{
     width: 100%;
 }
 .part2 textarea{
-    width: 745px;              
-    height: 100px;            
-    padding: 10px;            
-    font-size: 1rem;         
-    color: black;             
-    resize: vertical;         
-    margin-left: 0px;    
-    position: relative;       
-    z-index: auto;            
-    background-color: white;  
-    overflow-wrap: normal;   
+    width: 745px;
+    height: 100px;
+    padding: 10px;
+    font-size: 1rem;
+    color: black;
+    resize: vertical;
+    margin-left: 0px;
+    position: relative;
+    z-index: auto;
+    background-color: white;
+    overflow-wrap: normal;
     word-wrap: normal;
-    pointer-events: auto;  
+    pointer-events: auto;
 }
 
 .part3{
@@ -859,13 +860,13 @@ button{
     display: flex;
     flex-direction: column;
     color: black;
-    font-size: 1rem;    
+    font-size: 1rem;
     width: 250px;
     height: 60px;
     margin-left: 50px;
 }
 .insta h2, .Discord h2, .Twitter h2{
-    
+
     color: black;
     white-space: nowrap;
     margin:  0;
@@ -877,7 +878,7 @@ button{
     height: 150px;
     width: 240px;
     color: black;
-   
+
 }
 
 .testbutton{
