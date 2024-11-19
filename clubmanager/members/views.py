@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 def first_view(request):
     if request.user.is_authenticated:
         print('User is authenticated')
-        return redirect('home')
+        return redirect('myClubs')
     else:
         print('User is not authenticated')
         return redirect('login')
@@ -57,7 +57,7 @@ def joinSpecificClub(request):
             messages.error(request, f'You are already a member of {club.club_name}')
     else:
         messages.error(request, 'You must be logged in to join a club')
-    return redirect('home')
+    return redirect('myClubs')
 
 def joinClubs(request):
     clubs = Club.objects.all()
