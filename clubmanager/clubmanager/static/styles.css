@@ -431,6 +431,7 @@ button{
 
 .pagination {
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: flex-start;
     gap: 10px;
