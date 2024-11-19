@@ -13,16 +13,19 @@
     <div class="main_left">
 
 
-        {% for item in page_obj %}
+        {% for item in club_data %}
         <div class="club_box">
-            <h1 class="club_name">{{ item.club_name }}</h1>
-            <h2 class="club_body_text">{{ item.club_desc }}</h2>
+            <h1 class="club_name">{{ item.club.club_name }}</h1>
+            <h2 class="club_body_text">{{ item.club.club_desc }}</h2>
 
+            {% if user.is_authenticated and item.is_member %}
+            {% else %}
             <form method="POST", action="{% url 'join_specific_club' %}">
                 {% csrf_token %}
                 <input type="hidden" name="club_id" value="{{ item.club.id }}">
                 <button type="submit">Join Club</button>
             </form>
+            {% endif %}
         </div>
         {% empty %}
         <p>No clubs found.</p>
