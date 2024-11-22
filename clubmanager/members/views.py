@@ -2,10 +2,42 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-from .models import Club, Membership
+from .models import Club, Membership, Event
 
 from django.core.paginator import Paginator
 
+
+def myClubEvents(request):
+    user = request.user
+    if user.is_authenticated:
+        # Get all clubs the user is a member of
+        memberships = Membership.objects.filter(user=user)
+        clubs = [membership.club for membership in memberships]
+
+        # Fetch all events for these clubs
+        events = Event.objects.filter(club__in=clubs).order_by('start_time')
+    else:
+        events = []
+
+    # Paginate the events
+    paginator = Paginator(events, 10)  # Show 10 events per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    # Prepare event data for the template
+    event_data = []
+    for event in page_obj:
+        event_data.append({
+            'event': event,
+            'club': event.club
+        })
+
+    context = {
+        'page_obj': page_obj,
+        'event_data': event_data,
+    }
+
+    return render(request, 'main_sites/upcomingEvents.html', context=context)
 
 def first_view(request):
     if request.user.is_authenticated:
