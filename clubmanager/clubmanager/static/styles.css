@@ -164,8 +164,26 @@
     width: 100%;
     background-color: white;
 
+    justify-content: center;
+}
+
+.main_left_alt{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 20px;
+    height: auto;
+    width: 100%;
+    background-color: white;
+
     justify-content: left;
 }
+
+.event_date{
+    width: 100%;
+    text-align: center;
+
+}
+
 .search_bar_container{
     display: flex;
     justify-content: center;
@@ -226,6 +244,39 @@
     background-color: #da690b;
 }
 
+.event_box{
+    height: 150px;
+    width: 600px;
+    background-color: rgba(235, 235, 235, 0.87);
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px black;
+    margin-bottom: 15px;
+}
+.event_box label{
+    margin-top: 50px;
+    display: inherit;
+    font-size: 2rem;
+    margin-left: 75px;
+    color: rgb(0,60,125);
+
+}
+.event_box h1{
+    display: inherit;
+    font-size: 2rem;
+    color:  rgb(0,60,125);
+}
+.event_box h2{
+    font-size:  1rem;
+}
+
+.event_box button:hover {
+    background-color: #da690b;
+}
+.event_text{
+    margin-left: 10px;
+}
+
 #TitleJoinClub{
     display: flex;
     color: rgb(0,60,125);
@@ -243,6 +294,15 @@
     margin-bottom: 10px;
     justify-content: center;
 }
+#TitleMyEvents{
+    display: flex;
+    color: rgb(0,60,125);
+    font-size: 3rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
 input{
     position: relative;
     display: inherit;
