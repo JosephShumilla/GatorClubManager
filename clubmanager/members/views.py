@@ -239,5 +239,30 @@ def myClubs(request):
 
 def index(request):
     return render(request, 'main_sites/index.html',{})
+
 def upcomingEvents(request):
-    return render(request, 'main_sites/upcomingEvents.html',{})
+    user = request.user
+    if user.is_authenticated:
+        memberships = Membership.objects.filter(user=user)
+        clubs = [membership.club for membership in memberships]
+    else:
+        clubs = []
+    events = []
+    for club in clubs:
+        events += Event.objects.filter(club=club)
+    
+    paginator = Paginator(events, 10)  # Show 10 clubs per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'page_obj': page_obj,
+        'event_data': page_obj.object_list
+    }
+    print(context['event_data'])
+    return render(request, 'main_sites/upcomingEvents.html', context=context)
+
+def searchEvents(request):
+    user = request.user
+    return render(request, 'main_sites/joinClubs.html',{})
+
