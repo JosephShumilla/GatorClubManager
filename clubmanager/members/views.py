@@ -6,7 +6,6 @@ from .models import Club, Membership, Event
 
 from django.core.paginator import Paginator
 
-
 def myClubEvents(request):
     user = request.user
     if user.is_authenticated:
@@ -71,10 +70,15 @@ def item_list(request):
     return render(request, 'main_sites/joinClubs.html', context=context)
 
 def createClub(request):
-    print("ran")
+    user = request.user
+    if not user.is_authenticated:
+        context = {
+            'message': 'You must be logged in to create a club'
+        }
+        return render(request, 'main_sites/not_authenticated.html', context)
+    
     if request.method == 'POST':
         club_name = request.POST.get('ClubName')
-        club_leader = request.POST.get('ClubLeader')
         club_description = request.POST.get('ClubDescription')
         instagram = request.POST.get('Socials')
         discord = request.POST.get('Socials')
@@ -85,6 +89,10 @@ def createClub(request):
             club_desc=club_description,
         )
         new_club.save()
+
+        # add the user as the manager of the club
+        membership = Membership(user=user, club=new_club, role='Manager')
+        membership.save()
 
     return render(request, 'main_sites/createClub.html',{})
 
