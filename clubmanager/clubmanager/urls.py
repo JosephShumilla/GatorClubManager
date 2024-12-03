@@ -31,6 +31,7 @@ urlpatterns = [
     path('upcomingEvents.html', views.myClubEvents, name='upcomingEvents'),
     path('join/', views.joinSpecificClub, name='join_specific_club'),
     path('leave/', views.leaveSpecificClub, name='leave_specific_club'),
+    path('createEvent/<int:club_id>/', views.createEvent, name='create_event'),
 ]
 ## user login/logout authentication
 

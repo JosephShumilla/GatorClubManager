@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from .models import Club, Membership, Event
+from .forms import EventForm
 
 from django.core.paginator import Paginator
 
@@ -98,6 +99,34 @@ def createClub(request):
         membership.save()
 
     return render(request, 'main_sites/createClub.html',{})
+
+def createEvent(request, club_id):
+    print("ran")
+    club = get_object_or_404(Club, id=club_id)  # Fetch the club based on the passed club_id
+    user = request.user
+    if not user.is_authenticated:
+        context = {
+            'message': 'You must be logged in to create an event'
+        }
+        return render(request, 'main_sites/not_authenticated.html', context)
+    if not Membership.objects.filter(user=user, club=club, role='Manager').exists():
+        context = {
+            'message': 'You must be a manager of the club to create an event'
+        }
+        return render(request, 'main_sites/not_authenticated.html', context)
+
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            event = form.save(commit=False)  # Don't save the event yet
+            event.club = club  # Associate the event with the club
+            event.save()  # Now save the event
+            return redirect('upcomingEvents')
+    else:
+        form = EventForm()
+
+    return render(request, 'main_sites/createEvent.html', {'form': form, 'club': club})
+
 
 def joinSpecificClub(request):
     club_id = request.POST.get('club_id')
@@ -195,9 +224,11 @@ def myClubs(request):
     for item in page_obj.object_list:
         if user.is_authenticated:
             is_member = Membership.objects.filter(user=user, club=item).exists()
+            is_manager = Membership.objects.filter(user=user, club=item, role='Manager').exists()
         else:
             is_member = False
-        club_data.append({'club': item, 'is_member': is_member})
+            is_manager = False
+        club_data.append({'club': item, 'is_member': is_member, 'is_manager': is_manager})
 
     context = {
         'page_obj': page_obj,

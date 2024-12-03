@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Create Event for {{ club.club_name }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Renders the form fields including the club dropdown -->
+
+        <button type="submit">Create Event</button>
+    </form>
+{% endblock %}

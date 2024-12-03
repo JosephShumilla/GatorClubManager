@@ -16,6 +16,13 @@
             <button type="submit">Leave Club</button>
         </form>
         {% endif %}
+
+        {% if user.is_authenticated and item.is_manager %}
+        <form method="GET" action="{% url 'create_event' item.club.id %}">
+            {% csrf_token %}
+            <button type="submit">Create Event</button>
+        </form>
+        {% endif %}
     </div>
     {% empty %}
     <p>You have not yet joined a club.</p>
