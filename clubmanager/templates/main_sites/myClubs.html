@@ -4,30 +4,37 @@
 <h3 id="TitleMyClubs">Your Clubs</h3>
 <div class="main_left">
 
+    {% for item in club_data %}
+    <div class="club_box">
+        <h1 class="club_name">{{ item.club.club_name }}</h1>
+        <h2 class="club_body_text">{{ item.club.club_desc }}</h2>
 
-        {% for item in page_obj %}
-        <div class="club_box">
-            <h1 class="club_name">{{ item.club_name }}</h1>
-            <h2 class="club_body_text">{{ item.club_desc }}</h2>
-        </div>
-        {% empty %}
-        <p>You have not yet joined a club.</p>
-        {% endfor %}
-    </div>
-
-    <!-- Pagination Controls -->
-    <div class="pagination">
-        {% if page_obj.has_previous %}
-            <a href="?query={{ query }}&page=1">&laquo; First</a>
-            <a href="?query={{ query }}&page={{ page_obj.previous_page_number }}">Previous</a>
-        {% endif %}
-
-        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-
-        {% if page_obj.has_next %}
-            <a href="?query={{ query }}&page={{ page_obj.next_page_number }}">Next</a>
-            <a href="?query={{ query }}&page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        {% if user.is_authenticated and item.is_member %}
+        <form method="POST" action="{% url 'leave_specific_club' %}">
+            {% csrf_token %}
+            <input type="hidden" name="club_id" value="{{ item.club.id }}">
+            <button type="submit">Leave Club</button>
+        </form>
         {% endif %}
     </div>
+    {% empty %}
+    <p>You have not yet joined a club.</p>
+    {% endfor %}
+</div>
+
+<!-- Pagination Controls -->
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?query={{ query }}&page=1">&laquo; First</a>
+        <a href="?query={{ query }}&page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+    {% if page_obj.has_next %}
+        <a href="?query={{ query }}&page={{ page_obj.next_page_number }}">Next</a>
+        <a href="?query={{ query }}&page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
+</div>
 
 {% endblock %}

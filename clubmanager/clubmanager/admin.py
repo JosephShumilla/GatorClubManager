@@ -1,5 +1,5 @@
 from django.contrib import admin
-from members.models import Club, Membership, Event
+from .models import Club, Membership, Event
 
 # Register your models here.
 

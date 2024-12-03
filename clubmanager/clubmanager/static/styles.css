@@ -164,8 +164,26 @@
     width: 100%;
     background-color: white;
 
+    justify-content: center;
+}
+
+.main_left_alt{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 20px;
+    height: auto;
+    width: 100%;
+    background-color: white;
+
     justify-content: left;
 }
+
+.event_date{
+    width: 100%;
+    text-align: center;
+
+}
+
 .search_bar_container{
     display: flex;
     justify-content: center;
@@ -226,6 +244,39 @@
     background-color: #da690b;
 }
 
+.event_box{
+    height: 150px;
+    width: 600px;
+    background-color: rgba(235, 235, 235, 0.87);
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px black;
+    margin-bottom: 15px;
+}
+.event_box label{
+    margin-top: 50px;
+    display: inherit;
+    font-size: 2rem;
+    margin-left: 75px;
+    color: rgb(0,60,125);
+
+}
+.event_box h1{
+    display: inherit;
+    font-size: 2rem;
+    color:  rgb(0,60,125);
+}
+.event_box h2{
+    font-size:  1rem;
+}
+
+.event_box button:hover {
+    background-color: #da690b;
+}
+.event_text{
+    margin-left: 10px;
+}
+
 #TitleJoinClub{
     display: flex;
     color: rgb(0,60,125);
@@ -243,6 +294,15 @@
     margin-bottom: 10px;
     justify-content: center;
 }
+#TitleMyEvents{
+    display: flex;
+    color: rgb(0,60,125);
+    font-size: 3rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
 input{
     position: relative;
     display: inherit;
@@ -297,9 +357,10 @@ button{
 
 }
 .formBox{
-    display: inline-block;
+    display: block;
     height: 600px;
     width: 70%;
+    justify-content: center;
     margin-left: 15%;
     background-color: rgba(235, 235, 235, 0.87);
     margin-top: 40px;
@@ -307,10 +368,12 @@ button{
     box-shadow: 0 5px 5px black;
 }
 #CCTitle{
-    Color:rgb(0,60,125);
+    display: flex;
+    color: rgb(0,60,125);
     font-size: 3rem;
-    margin-left: 32%;
-
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
 }
 
 .part1{
@@ -318,7 +381,7 @@ button{
     margin-bottom: 20px;
     color: black;
     display: flex;
-    justify-content: left;
+    justify-content: center;
 
 }
 .ClName, .ClubLeader{
@@ -330,11 +393,10 @@ button{
     width: 35%;
     min-width: 100px;
     height:150px;
-    margin-left: 75px;
 }
 
 .ClName h2, .ClubLeader h2{
-
+    justify-content: center;
     display: flex;
     color: black;
     white-space: nowrap;
@@ -345,7 +407,7 @@ button{
 .ClName input, .ClubLeader input{
     display: flex;
     flex-direction: column;
-    margin-left: 0;
+    margin-left: 10;
     width: 100%;
 }
 
@@ -355,7 +417,7 @@ button{
     color: black;
     display: flex;
     justify-content: left;
-    margin-left: 75px;
+    justify-content: center;
 
 }
 .part2 h2{
@@ -364,6 +426,7 @@ button{
     white-space: nowrap;
     margin:  0;
     width: 100%;
+    justify-content: center;
 }
 .part2 textarea{
     width: 745px;
@@ -379,10 +442,11 @@ button{
     overflow-wrap: normal;
     word-wrap: normal;
     pointer-events: auto;
+    justify-content: center;
 }
 
 .part3{
-    justify-content: left;
+    justify-content: center;
     display: flex;
     color: black;
     margin-top: 30px;
@@ -390,7 +454,7 @@ button{
     height: 60px;
 }
 .insta, .Discord, .Twitter{
-    justify-content: left;
+    justify-content: center;
     display: flex;
     flex-direction: column;
     color: black;
@@ -421,17 +485,21 @@ button{
     color: brown;
     background-color: brown;
 }
-#createClub_Submit{
+
+#createClub_Submit {
     margin-top: 75px;
-    margin-left: 425px;
-    justify-content: center;
+    display: flex; /* Enables flexbox for centering */
+    justify-content: center; /* Centers the text horizontally */
+    align-items: center; /* Centers the text vertically */
+    text-align: center; /* Ensures text inside is horizontally aligned */
     width: 100px;
     height: 25px;
+    margin-left: 45%;
+    line-height: normal;
 }
 
 .pagination {
     display: flex;
-    position: relative;
     justify-content: center;
     align-items: flex-start;
     gap: 10px;
