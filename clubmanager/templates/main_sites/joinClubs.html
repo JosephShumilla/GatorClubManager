@@ -24,11 +24,16 @@
                 <input type="hidden" name="club_id" value="{{ item.club.id }}">
                 <button type="submit">Leave Club</button>
             </form>
-            {% else %}
+            {% elif user.is_authenticated %}
             <form method="POST", action="{% url 'join_specific_club' %}">
                 {% csrf_token %}
                 <input type="hidden" name="club_id" value="{{ item.club.id }}">
                 <button type="submit">Join Club</button>
+            </form>
+            {% else %}
+            <form method="POST", action="{% url 'login' %}">
+                {% csrf_token %}
+                <button type="submit">Login to Join</button>
             </form>
             {% endif %}
         </div>

@@ -16,7 +16,10 @@ def myClubEvents(request):
         # Fetch all events for these clubs
         events = Event.objects.filter(club__in=clubs).order_by('start_time')
     else:
-        events = []
+        context = {
+            'message': 'You must be logged in to see events'
+        }
+        return render(request, 'main_sites/not_authenticated.html', context)
 
     # Paginate the events
     paginator = Paginator(events, 10)  # Show 10 events per page
@@ -174,13 +177,15 @@ def searchClubs(request):
     return render(request, 'main_sites/joinClubs.html', context=context)
 
 def myClubs(request):
-    print("ran")
     user = request.user
     if user.is_authenticated:
         memberships = Membership.objects.filter(user=user)
         clubs = [membership.club for membership in memberships]
     else:
-        clubs = []
+        context = {
+            'message': 'You must be logged in to view your clubs'
+        }
+        return render(request, 'main_sites/not_authenticated.html', context)
 
     paginator = Paginator(clubs, 10)  # Show 10 clubs per page
     page_number = request.GET.get('page')
